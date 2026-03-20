@@ -1,28 +1,48 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int RomentoInteger(string s)
-{
-    int res = 0;
-    unordered_map<char, int> romen = {
-        {'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000}};
+string pliandrome(string s){
+    string t = "#";
+    for(char c :s){
+        t += c;
+        t += "#";
+    }
+    int n = t.size();
+    vector<int> p(n,0);
+    
+    int center =0, right = 0;
+    int maxlen = 0,start =0;
 
-    for (int i = 0; i < s.size()-1; i++)
-    {
-        if (romen[s[i]] < romen[s[i + 1]])
-        {
-            res -= romen[s[i]];
+    for(int i=0;i<n;i++){
+        int mirror = 2*center-i;
+
+        if(i<right){
+
+            p[i] = min(right - i, p[mirror]);
         }
-        else
-        {
-            res += romen[s[i]];
+
+        int l = i- (p[i] +1);
+        int r = i+ (p[i] +1);
+
+        while(l>= 0&& r<n && t[l] == t[r]) {
+            p[i]++;
+            l--;
+            r++;
+        }
+        if(i+ p[i]> right){
+            center = i;
+            right = i + p[i];
+        }
+        if(p[i]> maxlen){
+
+            maxlen =p[i];
+            start = (i- maxlen)/2;
         }
     }
-    return res + romen[s.back()];
+    return s.substr(start, maxlen);
 }
-int main()
-{ 
-    string s =  "III"; 
-    cout<<"Interger Form-> "<<RomentoInteger(s);
+int main(){
+    string s = "babad";
+    cout<<"Pliandrome string ->  "<< pliandrome(s);
     return 0;
 }
