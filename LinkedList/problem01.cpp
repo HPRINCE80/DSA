@@ -69,3 +69,4 @@ int main() {
     cout << "The middle node value is: " << middleNode->data << endl;
 
     return 0;
+}
