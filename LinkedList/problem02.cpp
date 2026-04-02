@@ -1,72 +1,41 @@
-#include <iostream>
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
-
-// Node class represents a node in a linked list
-class Node {
-public:
-
-    // Data stored in the node
-    int data;  
+struct Node {
+    int data;
+    Node* next;
     
-     // Pointer to the next node in the list
-    Node* next;     
-
-    // Constructor with both data
-    // and next node as parameters
-    Node(int data1, Node* next1) {
-        data = data1;
-        next = next1;
-    }
-
-    // Constructor with only data as
-    // a parameter, sets next to nullptr
-    Node(int data1) {
-        data = data1;
-        next = nullptr;
-    }
 };
-
-// Function to find the middle
-// node of a linked list
-Node *findMiddle(Node *head) {
-    
-     // Initialize the slow pointer to the head.
-    Node *slow = head; 
-    
-     // Initialize the fast pointer to the head.
-    Node *fast = head; 
-
-    // Traverse the linked list using the
-    // Tortoise and Hare algorithm.
-    while (fast != NULL && fast->next != NULL) {
-        // Move slow one step.
-        slow = slow->next; 
-         // Move fast two steps.
-        fast = fast->next->next; 
-    }
-    
-    
-     // Return the slow pointer,
-     // which is now at the middle node.
-    return slow; 
+Node* insertAtHead(Node* head, int X) {
+    Node* newNode = new Node();
+    newNode->next = head;
+    newNode->data = X;
+    return newNode;
 }
-
-
+void printlist(Node* head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
 int main() {
-    // Creating a sample linked list: 
-    Node* head = new Node(1);
-    head->next = new Node(2);
-    head->next->next = new Node(3);
-    head->next->next->next = new Node(4);
-    head->next->next->next->next = new Node(5);
 
-    // Find the middle node
-    Node* middleNode = findMiddle(head);
+    Node* head = new Node();
+    head->data = 10;
+    head->next = new Node();
+    head->next->data = 20;
+    head->next->next = new Node();
+    head->next->next->data = 30;
+    head->next->next->next = nullptr;
 
-    // Display the value of the middle node
-    cout << "The middle node value is: " << middleNode->data << endl;
+    cout << "Original List: ";
+    printlist(head);
 
+    int X = 5; // Value to insert at head
+    head = insertAtHead(head, X);
+
+    cout << "Modified List after inserting " << X << " at head: ";
+    printlist(head);
     return 0;
 }
