@@ -1,72 +1,49 @@
 #include <iostream>
-#include <bits/stdc++.h>
-
 using namespace std;
 
-// Node class represents a node in a linked list
-class Node {
-public:
-
-    // Data stored in the node
-    int data;  
-    
-     // Pointer to the next node in the list
-    Node* next;     
-
-    // Constructor with both data
-    // and next node as parameters
-    Node(int data1, Node* next1) {
-        data = data1;
-        next = next1;
-    }
-
-    // Constructor with only data as
-    // a parameter, sets next to nullptr
-    Node(int data1) {
-        data = data1;
-        next = nullptr;
-    }
+struct Node {
+    int data;
+    Node* next;
 };
 
-// Function to find the middle
-// node of a linked list
-Node *findMiddle(Node *head) {
-    
-     // Initialize the slow pointer to the head.
-    Node *slow = head; 
-    
-     // Initialize the fast pointer to the head.
-    Node *fast = head; 
-
-    // Traverse the linked list using the
-    // Tortoise and Hare algorithm.
-    while (fast != NULL && fast->next != NULL) {
-        // Move slow one step.
-        slow = slow->next; 
-         // Move fast two steps.
-        fast = fast->next->next; 
+// Function to count nodes in linked list
+int countNodes(Node* head) {
+    int count = 0;
+    Node* temp = head;
+    while (temp != nullptr) {
+        count++;
+        temp = temp->next; // move to next node
     }
-    
-    
-     // Return the slow pointer,
-     // which is now at the middle node.
-    return slow; 
+    return count;
 }
 
+// Function to print linked list
+void printList(Node* head) {
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL\n";
+}
 
 int main() {
-    // Creating a sample linked list: 
-    Node* head = new Node(1);
-    head->next = new Node(2);
-    head->next->next = new Node(3);
-    head->next->next->next = new Node(4);
-    head->next->next->next->next = new Node(5);
+    // Create linked list: 10 -> 20 -> 30 -> 40
+    Node* head = new Node();
+    head->data = 10;
+    head->next = new Node();
+    head->next->data = 20;
+    head->next->next = new Node();
+    head->next->next->data = 30;
+    head->next->next->next = new Node();
+    head->next->next->next->data = 40;
+    head->next->next->next->next = nullptr;
 
-    // Find the middle node
-    Node* middleNode = findMiddle(head);
+    cout << "Linked List: ";
+    printList(head);
 
-    // Display the value of the middle node
-    cout << "The middle node value is: " << middleNode->data << endl;
+    int totalNodes = countNodes(head);
+    cout << "Total nodes in the linked list: " << totalNodes << endl;
 
     return 0;
 }
