@@ -4,7 +4,7 @@ using namespace std;
 
 // Define a Node class for doubly linked list
 class Node {
-public:
+  public:
     int data;   // Data stored in the node
     Node* next; // Pointer to the next node in the list (forward direction)
     Node* back; // Pointer to the previous node in the list (backward direction)
@@ -22,8 +22,8 @@ public:
         next = nullptr;
         back = nullptr;
     }
-};
 
+};
 // Function to convert an array to a doubly linked list
 Node* convertArr2DLL(vector<int> arr) {
     // Create the head node with the first element of the array
