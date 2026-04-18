@@ -4,7 +4,7 @@ using namespace std;
 
 // Define a Node class for doubly linked list
 class Node {
-  public:
+  
     int data;   // Data stored in the node
     Node* next; // Pointer to the next node in the list (forward direction)
     Node* back; // Pointer to the previous node in the list (backward direction)
