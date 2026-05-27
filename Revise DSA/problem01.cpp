@@ -1,20 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int reverseNumber(int n ){
-    int reverse = 0;
-    
-    
-    while(n>0){
-        int m  = n%10;
-        reverse = reverse*10+ m;
-        n = n/10;
-       }
-       return reverse;
-
-}
 int main(){
-  int n = 321;
-  cout<<"Reverse Number-> "<<reverseNumber( n);
-    return 0;
+  int n;
+  cout<<"Enter the number of elements: ";
+  cin>>n;
+  for(int i=0;i<n;i++){
+    for(int j=0 ;j<= n-i-1;j++){
+      cout<<" ";
+    }
+    for(int k=0;k<2*i+1;k++){
+      cout<<"*";
+    }
+    for(int l=0;l<=n-i-1;l++){
+      cout<<" ";
+    }
+    cout<<endl;
+  }
+  return 0;
 }
