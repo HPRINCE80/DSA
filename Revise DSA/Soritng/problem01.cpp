@@ -28,12 +28,13 @@ void selectionsort(int arr[], int n)
     cout << "\n";
 }
 
-void Bubblesort(vector<int> &arr){
+void Bubblesort(vector<int> &arr)
+{
     int n = arr.size();
     int temp = 0;
     for (int i = n - 1; i >= 0; i--)
     {
-        
+
         for (int j = 0; j < i; j++)
         {
             if (arr[j] > arr[i])
@@ -50,36 +51,47 @@ void Bubblesort(vector<int> &arr){
     cout << "\n";
 }
 
-
-void BubblesortOwn(vector<int>& arr){
-    int temp =0;
+void BubblesortOwn(vector<int> &arr)
+{
+    int temp = 0;
     int n = arr.size();
 
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n-i;j++){
-            if(arr[j]>arr[j+1]){
-                swap(arr[j+1],arr[j]);
-
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j + 1], arr[j]);
             }
         }
     }
-cout << "After insertion->";
+    cout << "After insertion->";
     for (int i = 0; i < n; i++)
 
         cout << arr[i] << " ";
 
     cout << "\n";
-
-    
-
-    }
-
-void insertionsort(vector<int>& arr){
-    int n = arr.size();
-    for(int i=0;i<n;i++){}
 }
 
-    int main()
+vector<int> insertionsort(vector<int> &arr)
+{
+    int n = arr.size();
+    for (int i = 0; i < n; i++)
+    {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key)
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+    return arr;
+}
+
+int main()
 {
     vector<int> arr = {13, 46, 24, 52, 20, 9};
     int n = arr.size();
@@ -89,7 +101,15 @@ void insertionsort(vector<int>& arr){
         cout << arr[i] << " ";
     }
     cout << "\n";
-    BubblesortOwn(arr);
+    insertionsort(arr);
+
+    cout << "After insertion->";
+    for (int i = 0; i < n; i++)
+
+        cout << arr[i] << " ";
+
+    cout << "\n";
+    // BubblesortOwn(arr);
 
     return 0;
 }
