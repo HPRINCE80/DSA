@@ -9,7 +9,7 @@ int sum(int n)
      return n * sum(n-1);
     
 }       
-int main()
+in
 {
     int n;
     cout << "Enter the value of n: ";
