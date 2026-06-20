@@ -37,7 +37,7 @@ int main()
         {
             cout << word << " ";
         }
-        cout << "} ,";
+
     }
     return 0;
 }
