@@ -11,7 +11,7 @@ public:
 
 int main() {
     Solution sol;
-    int num = 18;
+    int num = 19;
 
     if (sol.isOdd(num)) {
         cout << num << " is odd." << endl;
