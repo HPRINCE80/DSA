@@ -13,7 +13,7 @@ int main() {
     int bitIndex = 4;  // Check the 2nd bit (0-based index)
 
     if (checkIthBit(num, bitIndex)) {
-        cout << "The " << bitIndex << "-th bit of " << num << " is set (1)." << endl;
+        cout << "The " << bitIndex << " " << num << " is set (1)." << endl;
     } else {
         cout << "The " << bitIndex << "-th bit of " << num << " is not set (0)." << endl;
     }
