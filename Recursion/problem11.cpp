@@ -6,7 +6,6 @@ void solve(int index, int k, int target,int current_sum, vector<int> current, ve
     return;
 }
    if(index > 9) return;
-   // exclude
 solve(index+1, k, target, current_sum, current, result);
 
 // include
