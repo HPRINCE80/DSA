@@ -54,7 +54,7 @@ public:
     int top() {
         if (isEmpty()) {
             cout << "Stack is empty" << endl;
-            return -1; 
+
         }
         return stackArray[topIndex];
     }
