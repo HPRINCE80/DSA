@@ -59,9 +59,7 @@ public:
         return stackArray[topIndex];
     }
 
-   /* Returns true if the 
-   stack is empty, false otherwise*/
-    bool isEmpty() {
+   /* Returns true if the
         return topIndex == -1;
     }
 };
