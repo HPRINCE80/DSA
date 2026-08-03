@@ -15,7 +15,7 @@ int countword(vector<string>& v){
     }
 
 int main(){
-    vector<string> arr = {"hello", "world", "world", "hello", "hello"};
+    vector<string> arr = {"hello", "world", "world", "hello"};
     cout<<"word left:"<<countword(arr)<<endl;
     
     return 0;
