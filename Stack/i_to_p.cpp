@@ -57,9 +57,14 @@ void infixToPostfix(string s) {
     cout << "Postfix expression: " << result << endl;  // Output the result
 }
 
+
+void postfixtoinfix(string s){
+    
+}
 int main() {
     string exp = "(p+q)*(m-n)";  // Infix expression
     cout << "Infix expression: " << exp << endl;
-    infixToPostfix(exp);  // Convert the infix expression to postfix
+    infixToPostfix(exp);
+    cout<<exp.length();  // Convert the infix expression to postfix
     return 0;
 }
