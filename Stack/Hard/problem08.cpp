@@ -10,22 +10,26 @@ void arrargene(vector<int> arr){
         for(int j=start;j<n;j++){
             cout<<"{";
             int minVal = INT_MAX;
+            int maxVal = INT_MIN;
+            int summid;
             
             for(int print=start;print<=j;print++){
 
                 cout<<arr[print]<<" ";
                 minVal = min(minVal, arr[print]); 
+                maxVal = max(maxVal,arr[print]);
                   // poore array ka min);
+                summid = maxVal - minVal;
             }
             cout<<"}"<<endl;
-            sum = (sum + minVal) % MOD;
+            sum = (sum + summid) % MOD;
         }
         
     }
     cout << "Minimum: " << sum<< endl;
 }
 int main(){
-    vector<int> arr = {3, 1, 2, 5};
+    vector<int> arr = {1, 2, 3};
     arrargene(arr);
 
 
