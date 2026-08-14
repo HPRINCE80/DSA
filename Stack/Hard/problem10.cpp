@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
-public:
     int largestRectangleArea(vector<int> &heights) {
         int n = heights.size();
         stack<int> st;
@@ -47,13 +45,12 @@ public:
 
         return maxA;
     }
-};
 
 int main() {
     vector<int> heights = {2, 1, 5, 6, 2, 3, 1};
-    Solution obj;
+    
 
     // Output the largest area
-    cout << "The largest area in the histogram is " << obj.largestRectangleArea(heights) << endl;
+    cout << "The largest area in the histogram is " << largestRectangleArea(heights) << endl;
     return 0;
 }
