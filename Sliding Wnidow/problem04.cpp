@@ -16,15 +16,15 @@ int optimalsSolution(vector<int> &arr)
         {
             currcount = lastfruitest + 1;
         }
-        
+    
 
         if (fruite == lastfruite)
         {
-            lastfruite++;
+            lastfruitest++;
         }
         else
         {
-            lastfruite = 1;
+            lastfruitest = 1;
             secondlast = lastfruite;
             lastfruite = fruite;
         }
