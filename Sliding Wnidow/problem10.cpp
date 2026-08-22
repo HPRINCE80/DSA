@@ -2,6 +2,7 @@
 using namespace std;
 
 string minWindow(string s, string t) {
+
     if (t.empty() || s.empty()) return "";
     
     unordered_map<char, int> need, window;
