@@ -34,7 +34,7 @@ void MinHeap::heapifyUp(int i){
     while(i > 0 && heap[i] < heap[parent(i)]){
         swap(heap[i],heap[parent(i)]);
         i = parent(i);
-        // yahan i ko update karo
+        
     }
 }
 void MinHeap::insert(int val){
@@ -47,7 +47,7 @@ int MinHeap::peek(){
 }
 int main(){
     MinHeap h;
-     h.insert(5);
+    h.insert(5);
     h.insert(3);
     h.insert(8);
     h.insert(1);
