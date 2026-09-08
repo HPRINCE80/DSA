@@ -1,34 +1,38 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <queue>
+#include <vector>
 using namespace std;
 
-void maxHeapify(vector<int>& nums, int n, int i) {
-    int largest = i;
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
-
-    if (left < n && nums[left] > nums[largest])
-        largest = left;
-
-    if (right < n && nums[right] > nums[largest])
-        largest = right;
-
-    if (largest != i) {
-        swap(nums[i], nums[largest]);
-        maxHeapify(nums, n, largest); // neeche recursively fix karo
-    }
-}
-
-vector<int> convertMinToMaxHeap(vector<int>& nums) {
-    int n = nums.size();
-    for (int i = (n / 2) - 1; i >= 0; i--) {
-        maxHeapify(nums, n, i);
-    }
-    return nums;
-}
-
 int main() {
-    vector<int> nums = {1, 3, 6, 5, 9, 8};
-    vector<int> result = convertMinToMaxHeap(nums);
-    for (int x : result) cout << x << " ";
+    // Min Heap banaya
+    priority_queue<int, vector<int>, greater<int>> minHeap;
+    
+    minHeap.push(5);
+    minHeap.push(1);
+    minHeap.push(8);
+    minHeap.push(3);
+    minHeap.push(9);
+
+    cout << "Min Heap top (smallest): " << minHeap.top() << endl;
+
+    // Max Heap banaya (empty)
+    priority_queue<int> maxHeap;
+
+    // Min heap se elements nikal ke max heap mein daalo
+    while (!minHeap.empty()) {
+        maxHeap.push(minHeap.top());
+        minHeap.pop();
+    }
+
+    cout << "Max Heap top (largest): " << maxHeap.top() << endl;
+
+    // Max heap ke saare elements print karo (descending order mein niklenge)
+    cout << "Max Heap elements: ";
+    while (!maxHeap.empty()) {
+        cout << maxHeap.top() << " ";
+        maxHeap.pop();
+    }
+    cout << endl;
+
     return 0;
 }
