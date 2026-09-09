@@ -1,54 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
-public:
-    int findKthLargest(vector<int>& nums, int k) {
-        int n = nums.size();
-        int targetIndex = n - k;  // kth largest = (n-k)th smallest in sorted ascending order
-        int left = 0, right = n - 1;
+int kthSmallest(vector<int>& nums, int k) {
+    // Step 1: Max-heap banao (hint: default priority_queue max-heap hoti hai)
+    priority_queue<int> maxHeap;
+    
+    // Step 2: Har element ko loop mein push karo
+    for(int i = 0; i < nums.size(); i++) {
+        maxHeap.push(nums[i]);
         
-        while (true) {
-            int pivotIndex = left + rand() % (right - left + 1);
-            pivotIndex = partition(nums, left, right, pivotIndex);
-            
-            if (pivotIndex == targetIndex) {
-                return nums[pivotIndex];
-            } else if (pivotIndex < targetIndex) {
-                left = pivotIndex + 1;
-            } else {
-                right = pivotIndex - 1;
-            }
+        // Step 3: Agar size k se bada ho gaya, top nikaal do
+        if(maxHeap.size() > k) {
+            maxHeap.pop();
         }
     }
     
-private:
-    int partition(vector<int>& nums, int left, int right, int pivotIndex) {
-        int pivotValue = nums[pivotIndex];
-        // pivot ko end mein bhej do
-        swap(nums[pivotIndex], nums[right]);
-        int storeIndex = left;
-        
-        for (int i = left; i < right; i++) {
-            if (nums[i] < pivotValue) {
-                swap(nums[storeIndex], nums[i]);
-                storeIndex++;
-            }
-        }
-        
-        // pivot ko sahi jagah pe wapas rakho
-        swap(nums[right], nums[storeIndex]);
-        return storeIndex;
-    }
-};
+    // Step 4: Answer return karo
+    return maxHeap.top();
+}
 
 int main() {
-    Solution sol;
     vector<int> nums = {3, 2, 1, 5, 6, 4};
-    int k = 4  ;
+    int k = 2;
     
-    cout << "Kth largest element: " << sol.findKthLargest(nums, k) << endl;
-    // Output: 5
+    cout << "Kth Smallest Element: " << kthSmallest(nums, k) << endl;
     
     return 0;
 }
