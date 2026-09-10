@@ -1,0 +1,1 @@
+ // cout<<"These number is Palindrome or not: ";
