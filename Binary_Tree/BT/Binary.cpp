@@ -17,9 +17,9 @@ Node* BinaryTree(){
     cin>>x;
     if(x==-1) return NULL;
 
-    Node* temp = new NOde(x);
+    Node* temp = new Node(x);
 
-    cout<<"Enter the left child"
+    cout<<"Enter the left child";
 
 }
 
