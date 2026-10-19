@@ -54,6 +54,8 @@ vector<int> findSpiral(Node* root){
         
         
     }
+
+    return ans;
     
     
 
