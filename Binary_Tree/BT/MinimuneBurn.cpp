@@ -101,6 +101,9 @@ int main()
     TreeNode* target = root->left->left;
 
    cout<<"Minimune Time  -> "<<minTime(root, target)<<" .";
+   cout<<"Minimune Time  -> "<<minTime(root, target)<<" .";
+   cout<<"Minimune Time  -> "<<minTime(root, target)<<" .";
+   cout<<"Minimune Time  -> "<<minTime(root, target)<<" .";
 
     return 0;
 }
