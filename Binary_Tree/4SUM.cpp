@@ -38,6 +38,22 @@ while(left < right && nums[right] == nums[right+1]) right--;
 
 }
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
+    int n, target;
+    if (!(cin >> n >> target)) return 0;
+
+    vector<int> nums(n);
+    for (int& num : nums) cin >> num;
+
+    vector<vector<int>> answer = fourSum(nums, target);
+    for (const vector<int>& quadruplet : answer) {
+        for (int i = 0; i < 4; i++) {
+            if (i) cout << ' ';
+            cout << quadruplet[i];
+        }
+        cout << '\n';
+    }
     return 0;
 }
